@@ -25,9 +25,43 @@ class CameraBarcodeReaderViewController: UIViewController, AVCaptureVideoDataOut
 
     @IBOutlet weak var cameraPreview: UIView!
 
+    @IBOutlet weak var torchSwitch: UIButton!
+    
     @IBAction func didTouchDone(_ sender: UIButton) {
 
     }
+    
+    @objc open func hasTorch() -> Bool {
+        if let device = self.device {
+            return device.hasTorch
+        }
+        return false
+    }
+
+    @discardableResult
+    @objc open func toggleTorch() -> Bool {
+        if self.hasTorch() {
+            self.captureSession.beginConfiguration()
+            if let device = self.device {
+                do {
+                    try device.lockForConfiguration()
+                } catch _ {}
+
+                if device.torchMode == .off {
+                    device.torchMode = .on
+                } else if device.torchMode == .on {
+                    device.torchMode = .off
+                }
+
+                device.unlockForConfiguration()
+                self.captureSession.commitConfiguration()
+
+                return device.torchMode == .on
+            }
+        }
+        return false
+    }
+
     private func addCameraInput() {
         guard let device = self.device,
         let cameraInput = try? AVCaptureDeviceInput(device: device) else { return }
