@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  BarcodeScanner
-//
-//  Created by Crina Ciobotaru on 06.04.2023.
-//
-
 import UIKit
 
 @main
