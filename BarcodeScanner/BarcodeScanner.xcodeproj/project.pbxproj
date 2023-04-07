@@ -13,6 +13,8 @@
 		86AF0B0129E005E600399E5F /* CameraBarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0029E005E600399E5F /* CameraBarcodeReaderViewController.swift */; };
 		86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */; };
 		86AF0B0729E01E4300399E5F /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */; };
+		86AF0B0C29E01FC800399E5F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86AF0B0B29E01FC800399E5F /* Realm */; };
+		86AF0B0E29E01FC800399E5F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86AF0B0D29E01FC800399E5F /* RealmSwift */; };
 		86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D6429DF587200B1D2BB /* AppDelegate.swift */; };
 		86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D6629DF587200B1D2BB /* SceneDelegate.swift */; };
 		86CE0D6C29DF587200B1D2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D6A29DF587200B1D2BB /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AF0B0E29E01FC800399E5F /* RealmSwift in Frameworks */,
+				86AF0B0C29E01FC800399E5F /* Realm in Frameworks */,
 				6F70837E6988082383B19ED6 /* Pods_BarcodeScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +195,10 @@
 			dependencies = (
 			);
 			name = BarcodeScanner;
+			packageProductDependencies = (
+				86AF0B0B29E01FC800399E5F /* Realm */,
+				86AF0B0D29E01FC800399E5F /* RealmSwift */,
+			);
 			productName = BarcodeScanner;
 			productReference = 86CE0D6129DF587200B1D2BB /* BarcodeScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +274,9 @@
 				Base,
 			);
 			mainGroup = 86CE0D5829DF587100B1D2BB;
+			packageReferences = (
+				86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 86CE0D6229DF587200B1D2BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -764,6 +775,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86AF0B0B29E01FC800399E5F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		86AF0B0D29E01FC800399E5F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86CE0D5929DF587100B1D2BB /* Project object */;
 }
