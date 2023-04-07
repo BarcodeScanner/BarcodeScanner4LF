@@ -10,6 +10,8 @@ class ManageProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        productName.delegate = self
+        quantityTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,5 +23,12 @@ class ManageProductViewController: UIViewController {
 
     @IBAction func didTouchAddToDatabase(_ sender: UIButton) {
 
+    }
+}
+
+extension ManageProductViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
