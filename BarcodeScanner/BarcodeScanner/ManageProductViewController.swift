@@ -39,6 +39,19 @@ class ManageProductViewController: UIViewController {
         }
     }
     
+    func update() {
+        guard let product = productModel else { return }
+        do {
+            let realm = try Realm()
+            try realm.write {
+                product.name = self.productName.text ?? ""
+                product.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
     func refresh() {
         productModel?.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
         productModel?.name = self.productName.text ?? ""
