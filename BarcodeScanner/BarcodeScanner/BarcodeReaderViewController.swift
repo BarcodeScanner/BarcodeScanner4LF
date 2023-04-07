@@ -64,6 +64,7 @@ class BarcodeReaderViewController: CameraBarcodeReaderViewController {
         
         DispatchQueue.main.async {
             SQFeedbackGenerator().generateFeedback(type: .notification)
+            self.playSoundNamed("new_barcode_read")
             self.updateNrOfScannedBarcodesLabel()
         }
     }
