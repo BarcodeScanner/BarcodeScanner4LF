@@ -3,6 +3,12 @@ import SQFeedbackGenerator
 import AVFoundation
 
 class BarcodeReaderViewController: CameraBarcodeReaderViewController {
+    static func getBarcodeReaderViewController() -> BarcodeReaderViewController? {
+        if let barcodeReaderVC = UIViewController.getScreen(name: "BarcodeReaderViewControllerID", fromStoryboard: "Main") as? BarcodeReaderViewController {
+            return barcodeReaderVC
+        }
+        return nil
+    }
     // MARK: - Instance Properties -
     var closeAfterFirstRead: Bool = true
     var lastScannedEntry: String?
@@ -81,5 +87,41 @@ class BarcodeReaderViewController: CameraBarcodeReaderViewController {
             nrOfScannedBarcodesText = String.localizedStringWithFormat(strFormat, self.scannedEntries.count)
         }
         self.numberOfScannedBarcodesLabel.text = nrOfScannedBarcodesText
+    }
+}
+
+extension UIViewController {
+    func playSoundNamed(_ soundName: String) {
+        var soundID: SystemSoundID = 0
+        let soundNameCFString = soundName as CFString
+        let soundFileExtension = "caf" as CFString
+        if let soundURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), soundNameCFString, soundFileExtension, nil) {
+            AudioServicesCreateSystemSoundID(soundURL, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        }
+    }
+    
+    static func getScreen(name: String, fromStoryboard storyboardName: String) -> UIViewController {
+        // Get the storyboard
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        // Instantiate the required ViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: name)
+        // Return it
+        return viewController
+    }
+    
+    func presentModalViewController(_ viewController: UIViewController, isFullScreen: Bool = false, showNavigationBar: Bool = true) {
+        // Embed self in a new navigation controller
+        let navController = UINavigationController(rootViewController: viewController)
+        // Set the navigation bar visibility
+        navController.setNavigationBarHidden(!showNavigationBar, animated: false)
+        // Set the modal presentation style to fullScreen if required
+        if isFullScreen {
+            navController.modalPresentationStyle = .fullScreen
+        }
+        // Set the modal transition style
+        navController.modalTransitionStyle = .coverVertical
+        // Present the new navigation controller
+        self.navigationController?.present(navController, animated: true, completion: nil)
     }
 }
