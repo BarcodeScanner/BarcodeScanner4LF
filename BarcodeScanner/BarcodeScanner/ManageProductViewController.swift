@@ -22,7 +22,14 @@ class ManageProductViewController: UIViewController {
     }
 
     @IBAction func didTouchAddToDatabase(_ sender: UIButton) {
-
+        guard let product = productModel else { return }
+       
+        if product.name.isEmpty {
+            self.add()
+        } else {
+            self.update()
+        }
+      
     }
     
     func add() {

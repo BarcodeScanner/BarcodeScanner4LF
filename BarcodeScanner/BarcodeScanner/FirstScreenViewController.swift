@@ -13,8 +13,15 @@ class FirstScreenViewController: UIViewController {
     @IBAction func didTouchScanBarcode(_ sender: UIButton) {
         if let readerVC = BarcodeReaderViewController.getBarcodeReaderViewController() {
             readerVC.closeAfterFirstRead = true
+            readerVC.$scannedBarcode.sink { scanned in
+                self.didReadBarcodeWithValue(scanned)
+            }.store(in: &self.cancellables)
+            self.presentModalViewController(readerVC)
         }
     }
+}
+
+extension FirstScreenViewController {
     
     func didReadBarcodeWithValue(_ stringValue: String?) {
         guard let stringValue = stringValue else { return }
