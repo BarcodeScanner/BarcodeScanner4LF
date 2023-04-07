@@ -24,6 +24,26 @@ class ManageProductViewController: UIViewController {
     @IBAction func didTouchAddToDatabase(_ sender: UIButton) {
 
     }
+    
+    func add() {
+        guard let product = productModel else { return }
+        self.refresh()
+        do {
+            let realm = try Realm()
+            try realm.write {
+                
+                realm.add(product)
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func refresh() {
+        productModel?.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
+        productModel?.name = self.productName.text ?? ""
+        productModel?.barcode = self.barcode.text ?? ""
+    }
 }
 
 extension ManageProductViewController: UITextFieldDelegate {
