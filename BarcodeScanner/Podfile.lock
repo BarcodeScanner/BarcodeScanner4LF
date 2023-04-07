@@ -1,0 +1,20 @@
+PODS:
+  - MBProgressHUD (1.2.0)
+  - SQFeedbackGenerator (0.1.1)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - SQFeedbackGenerator
+
+SPEC REPOS:
+  trunk:
+    - MBProgressHUD
+    - SQFeedbackGenerator
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SQFeedbackGenerator: 007356526d4a45da5251505c91687a3743b58a00
+
+PODFILE CHECKSUM: 64b8c3286e4f6d72b38b05fd8991dbd906678afa
+
+COCOAPODS: 1.11.3
