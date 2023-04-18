@@ -16,7 +16,7 @@ class ManageProductViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let product = productModel else { return }
-        self.barcode.text = product.barcode
+        self.barcode.text = "Barcode: \(product.barcode)"
         self.productName.text = product.name
         self.quantityTextField.text = "\(product.quantity)"
     }
