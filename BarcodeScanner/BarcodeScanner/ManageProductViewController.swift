@@ -33,12 +33,11 @@ class ManageProductViewController: UIViewController {
     }
     
     func add() {
-        guard let product = productModel else { return }
+        guard let product = productModel, let realm = ApplicationManager.shared.realm else { return }
         self.refresh()
         do {
-            let realm = try Realm()
+            
             try realm.write {
-                
                 realm.add(product)
             }
         } catch let error {
@@ -47,9 +46,8 @@ class ManageProductViewController: UIViewController {
     }
     
     func update() {
-        guard let product = productModel else { return }
+        guard let product = productModel, let realm = ApplicationManager.shared.realm else { return }
         do {
-            let realm = try Realm()
             try realm.write {
                 product.name = self.productName.text ?? ""
                 product.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
@@ -63,6 +61,7 @@ class ManageProductViewController: UIViewController {
         productModel?.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
         productModel?.name = self.productName.text ?? ""
         productModel?.barcode = self.barcode.text ?? ""
+        productModel?.owner_id = app.currentUser?.id ?? ""
     }
 }
 

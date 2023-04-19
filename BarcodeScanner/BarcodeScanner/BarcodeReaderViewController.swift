@@ -19,6 +19,16 @@ class BarcodeReaderViewController: CameraBarcodeReaderViewController {
     var shouldReturn = true
     @Published var scannedBarcode: String?
     
+    @IBAction func didPressTorchButton(_ sender: UIButton) {
+        let isTorchOn = self.toggleTorch()
+        let torchButtonImage = isTorchOn ? UIImage(named: "forms-barcode-torch-off") : UIImage(named: "forms-barcode-torch-on")
+        self.torchButton.setImage(torchButtonImage, for: .normal)
+    }
+    
+    @IBAction func didPressCloseButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - IBoutlets -
     
     @IBOutlet weak var torchButton: UIButton!
