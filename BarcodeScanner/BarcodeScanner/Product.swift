@@ -1,11 +1,12 @@
 import Foundation
 import RealmSwift
 
-class Product: Object {
+class Product: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String = ""
     @Persisted var barcode: String = ""
     @Persisted var quantity: Int = 0
+    @Persisted var owner_id: String
     
     convenience init(name: String, barcode: String, quantity: Int) {
         self.init()

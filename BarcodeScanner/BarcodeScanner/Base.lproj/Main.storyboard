@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WHk-d3-jkG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -17,13 +17,13 @@
         <!--Navigation Controller-->
         <scene sceneID="hAu-q6-naU">
             <objects>
-                <navigationController id="WHk-d3-jkG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="WHk-d3-jkG" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xZu-Xi-tlP">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="6Ag-yN-FX1" kind="relationship" relationship="rootViewController" id="w4m-qP-tcx"/>
+                        <segue destination="gT5-8t-5us" kind="relationship" relationship="rootViewController" id="d1w-6i-obC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSi-mP-fO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -33,13 +33,13 @@
         <!--Login Screen View Controller-->
         <scene sceneID="cPX-rR-VFU">
             <objects>
-                <viewController id="gT5-8t-5us" customClass="LoginScreenViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenViewController" id="gT5-8t-5us" customClass="LoginScreenViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ss5-Di-6hM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="02v-3M-iUw">
-                                <rect key="frame" x="39.333333333333343" y="377.66666666666669" width="314.33333333333326" height="122"/>
+                                <rect key="frame" x="39.333333333333343" y="399.66666666666669" width="314.33333333333326" height="122.00000000000006"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bl3-zi-aUs">
                                         <rect key="frame" x="0.0" y="0.0" width="314.33333333333331" height="50"/>
@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="50" id="z5w-cI-xgq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KcK-U7-0PZ">
                                         <rect key="frame" x="0.0" y="72" width="314.33333333333331" height="50"/>
@@ -55,12 +55,12 @@
                                             <constraint firstAttribute="height" constant="50" id="ppE-Mz-08K"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fz9-tg-wOR">
-                                <rect key="frame" x="96.666666666666686" y="549.66666666666663" width="200" height="140"/>
+                                <rect key="frame" x="96.666666666666686" y="571.66666666666663" width="200" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcR-2m-0I2">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
@@ -94,7 +94,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="exs-9d-S5c">
-                                <rect key="frame" x="20" y="129" width="353" height="121"/>
+                                <rect key="frame" x="20" y="173" width="353" height="121"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-mJ-EQt">
                                         <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="60"/>
@@ -124,6 +124,7 @@
                             <constraint firstItem="exs-9d-S5c" firstAttribute="top" secondItem="wrU-EI-UEl" secondAttribute="top" constant="70" id="zQ8-7G-7S6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xDa-y6-20d"/>
                     <connections>
                         <outlet property="emailTextField" destination="bl3-zi-aUs" id="fz5-Qj-xza"/>
                         <outlet property="passwordTextField" destination="KcK-U7-0PZ" id="juG-aJ-gvB"/>
@@ -131,18 +132,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0j8-1d-EYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811" y="648"/>
+            <point key="canvasLocation" x="-811" y="714"/>
         </scene>
         <!--First Screen View Controller-->
         <scene sceneID="wuE-lO-EgK">
             <objects>
-                <viewController id="6Ag-yN-FX1" customClass="FirstScreenViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstScreenViewController" id="6Ag-yN-FX1" customClass="FirstScreenViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBH-VL-XVV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0x-Uw-dU5">
-                                <rect key="frame" x="87.333333333333329" y="430.66666666666669" width="218.33333333333337" height="60"/>
+                                <rect key="frame" x="87.333333333333329" y="408.66666666666669" width="218.33333333333337" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="mNy-Fs-3qy"/>
                                 </constraints>
@@ -172,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou6-LM-WXc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811" y="-27"/>
+            <point key="canvasLocation" x="-811" y="-90"/>
         </scene>
         <!--Manage Product View Controller-->
         <scene sceneID="f9v-kv-8dG">
