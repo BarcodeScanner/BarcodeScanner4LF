@@ -5,45 +5,10 @@ import SwiftUI
 
 class FirstScreenViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
-    
-    
     @IBOutlet weak var scanBarcode: UIButton!
-    func openFlexibleSyncRealm(for user: User) async throws -> Realm {
-        
-        var config = user.flexibleSyncConfiguration()
-        config.objectTypes = [Product.self]
-        let realm = try await Realm(configuration: config)
-        print("Successfully opened realm: \(realm)")
-        let subscriptions = realm.subscriptions
-        try await subscriptions.update {
-            if subscriptions.first(named: "all_products") == nil {
-                subscriptions.append(QuerySubscription<Product>(name: "all_products"))
-            }
-            
-            
-        }
-        return realm
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let user = ApplicationManager.shared.user
-        else { return }
-        Task {
-            do {
-                ApplicationManager.shared.realm = try await openFlexibleSyncRealm(for: user)
-                /*
-                print(ApplicationManager.shared.realm?.objects(Product.self).count)
-                ApplicationManager.shared.realm?.beginWrite()
-                ApplicationManager.shared.realm?.objects(Product.self).forEach({
-                    ApplicationManager.shared.realm?.delete($0)
-                })
-                try ApplicationManager.shared.realm?.commitWrite()
-                 */
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
     }
     
     @IBAction func didTouchScanBarcode(_ sender: UIButton) {

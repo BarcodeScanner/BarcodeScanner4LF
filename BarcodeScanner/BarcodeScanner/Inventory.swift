@@ -5,6 +5,7 @@ class Inventory: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String = ""
     @Persisted var owner_id: String
+    @Persisted var products: List<Product>
     
     convenience init(name: String) {
         self.init()

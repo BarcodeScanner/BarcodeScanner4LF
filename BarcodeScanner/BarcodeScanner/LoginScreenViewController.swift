@@ -1,74 +1,6 @@
 import UIKit
 import RealmSwift
 
-class ApplicationManager {
-    static var shared = ApplicationManager()
-    var realmConfiguration: Realm.Configuration?
-    var user: User?
-    var realm: Realm?
-    @ObservedResults(Product.self) var products
-    
-    private init() {
-        app.syncManager.errorHandler = { syncError, session in
-            if let thisError = syncError as? SyncError {
-                switch thisError.code {
-                    
-                case .clientSessionError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .clientUserError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .clientInternalError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .clientResetError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .underlyingAuthError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .permissionDeniedError:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .invalidFlexibleSyncSubscriptions:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                case .writeRejected:
-                    if let errorInfo = thisError.compensatingWriteInfo {
-                        for anError in errorInfo {
-                            print(anError.reason as Any)
-                        }
-                    }
-                @unknown default:
-                    break
-                }
-            }
-        }
-    }
-}
-
 class LoginScreenViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -78,8 +10,9 @@ class LoginScreenViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         Task.init {
             do {
-                ApplicationManager.shared.user = try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
-                goToInventoriesScreen()
+                let user = try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
+                ApplicationManager.shared.user = user
+                self.continueApp(with: user)
             } catch {
                 print("Failed to login user: \(error.localizedDescription)")
             }
@@ -92,13 +25,13 @@ class LoginScreenViewController: UIViewController {
             do {
                 try await app.emailPasswordAuth.registerUser(email: email, password: password)
                 print("Successfully registered user")
-                ApplicationManager.shared.user =  try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
-                goToInventoriesScreen()
+                let user = try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
+                ApplicationManager.shared.user = user
+                self.continueApp(with: user)
             } catch {
                 print("Failed to register user: \(error.localizedDescription)")
             }
         }
-
     }
     
     override func viewDidLoad() {
@@ -106,27 +39,55 @@ class LoginScreenViewController: UIViewController {
 
         if let user = app.currentUser {
             ApplicationManager.shared.user = user
-            self.goToInventoriesScreen()
+            self.continueApp(with: user)
         } else {
             emailTextField.delegate = self
             passwordTextField.delegate = self
         }
     }
     
-    func goToFirstScreen() {
+    func continueApp(with user: User) {
+        Task {
+            do {
+                try await self.goToInventoriesScreen(with: user)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func goToFirstScreen(with user: User) async throws {
+        ApplicationManager.shared.realm = try await ApplicationManager.shared.openFlexibleSyncRealm(for: user)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let firstScreenViewController = storyboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as? FirstScreenViewController else { return }
         
         self.navigationController?.setViewControllers([firstScreenViewController], animated: true)
     }
     
-    func goToInventoriesScreen() {
+    func goToInventoriesScreen(with user: User) async throws  {
+        ApplicationManager.shared.realm = try await ApplicationManager.shared.openFlexibleSyncRealm(for: user)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let inventoriesScreenViewController = storyboard.instantiateViewController(withIdentifier: "InventoriesViewController") as? InventoriesViewController else { return }
         
         self.navigationController?.setViewControllers([inventoriesScreenViewController], animated: true)
     }
         
+    func openRealm(for user: User) async {
+        do {
+            
+            /*
+             print(ApplicationManager.shared.realm?.objects(Product.self).count)
+             ApplicationManager.shared.realm?.beginWrite()
+             ApplicationManager.shared.realm?.objects(Product.self).forEach({
+             ApplicationManager.shared.realm?.delete($0)
+             })
+             try ApplicationManager.shared.realm?.commitWrite()
+             */
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+    }
 }
 
 extension LoginScreenViewController: UITextFieldDelegate {
