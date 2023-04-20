@@ -17,6 +17,8 @@
 		8676168629EFDE79002D1526 /* atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8676168529EFDE78002D1526 /* atlas.plist */; };
 		8676168729EFDEEC002D1526 /* chec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D7229DF587200B1D2BB /* chec.plist */; };
 		868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */; };
+		86A8C42629F1A685004D9608 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */; };
+		86A8C42829F1A82C004D9608 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42729F1A82C004D9608 /* ApplicationManager.swift */; };
 		86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */; };
 		86AF0B0729E01E4300399E5F /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */; };
 		86AF0B0C29E01FC800399E5F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86AF0B0B29E01FC800399E5F /* Realm */; };
@@ -62,6 +64,8 @@
 		8676168329EFDDCC002D1526 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		8676168529EFDE78002D1526 /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = atlas.plist; sourceTree = "<group>"; };
 		868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		86A8C42729F1A82C004D9608 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		86AF0B0F29E0207300399E5F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				86295BBE29F156D0006251DE /* InventoriesViewController.swift */,
 				86295BC029F16FAE006251DE /* Inventory.swift */,
 				86295BC229F17289006251DE /* CreateInventoryViewController.swift */,
+				86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */,
+				86A8C42729F1A82C004D9608 /* ApplicationManager.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				9514B45929F079D9000AAF76 /* CameraBarcodeReaderViewController.swift in Sources */,
 				86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */,
 				86295BBF29F156D0006251DE /* InventoriesViewController.swift in Sources */,
+				86A8C42829F1A82C004D9608 /* ApplicationManager.swift in Sources */,
 				868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */,
 				86295BC129F16FAE006251DE /* Inventory.swift in Sources */,
 				86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */,
@@ -461,6 +468,7 @@
 				86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */,
 				86AF0B1229E021E400399E5F /* ManageProductViewController.swift in Sources */,
 				86AF0B0729E01E4300399E5F /* FirstScreenViewController.swift in Sources */,
+				86A8C42629F1A685004D9608 /* InventoryTableViewCell.swift in Sources */,
 				86AF0B1029E0207300399E5F /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
