@@ -1,39 +1,35 @@
-//
-//  InventoriesViewController.swift
-//  BarcodeScanner
-//
-//  Created by Crina Ciobotaru on 20.04.2023.
-//
-
 import UIKit
+import RealmSwift
 
 class InventoriesViewController: UIViewController {
-
+   
     @IBOutlet weak var inventoriesTableView: UITableView!
     @IBOutlet weak var showMyTaskSwitch: UISwitch!
-    @IBAction func didTouchLogOut(_ sender: UIBarButtonItem) {
-    }
-    
-    @IBAction func didTouchAddNewInventory(_ sender: UIBarButtonItem) {
-    }
-    
-    @IBAction func didTouchWorkOffline(_ sender: UIBarButtonItem) {
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let logOutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(didTouchLogOut))
+        navigationItem.leftBarButtonItem = logOutBarButton
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func didTouchLogOut() {
+        guard let user = ApplicationManager.shared.user else { return }
+        Task.init {
+            do {
+                try await user.logOut()
+                print("Successfully logged user out")
+                goToLoginScreen()
+            } catch {
+                print("Failed to log user out: \(error.localizedDescription)")
+            }
+        }
     }
-    */
 
+    func goToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let inventoriesScreenViewController = storyboard.instantiateViewController(withIdentifier: "LoginScreenViewController") as? LoginScreenViewController else { return }
+        
+        self.navigationController?.setViewControllers([inventoriesScreenViewController], animated: true)
+    }
 }

@@ -79,7 +79,7 @@ class LoginScreenViewController: UIViewController {
         Task.init {
             do {
                 ApplicationManager.shared.user = try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
-                goToFirstScreen()
+                goToInventoriesScreen()
             } catch {
                 print("Failed to login user: \(error.localizedDescription)")
             }
@@ -118,6 +118,13 @@ class LoginScreenViewController: UIViewController {
         guard let firstScreenViewController = storyboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as? FirstScreenViewController else { return }
         
         self.navigationController?.setViewControllers([firstScreenViewController], animated: true)
+    }
+    
+    func goToInventoriesScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let inventoriesScreenViewController = storyboard.instantiateViewController(withIdentifier: "InventoriesViewController") as? InventoriesViewController else { return }
+        
+        self.navigationController?.setViewControllers([inventoriesScreenViewController], animated: true)
     }
         
 }

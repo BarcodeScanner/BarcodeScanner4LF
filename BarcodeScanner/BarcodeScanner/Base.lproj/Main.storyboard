@@ -135,41 +135,31 @@
             </objects>
             <point key="canvasLocation" x="-811" y="714"/>
         </scene>
-        <!--Inventories View Controller-->
+        <!--Inventory-->
         <scene sceneID="11e-M6-0XU">
             <objects>
-                <viewController id="UoS-hy-nhG" customClass="InventoriesViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InventoriesViewController" title="Inventory" id="UoS-hy-nhG" customClass="InventoriesViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RPn-s2-3I4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V52-GM-50y">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="Inventory" id="Of5-4j-wu2">
-                                        <barButtonItem key="leftBarButtonItem" title="Log out" id="SBe-dK-Rvg">
-                                            <color key="tintColor" red="0.57400663299999999" green="0.45441131309999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="didTouchLogOut:" destination="UoS-hy-nhG" id="xC2-JW-XSy"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem title="Item" image="plus" catalog="system" id="9EV-uZ-5qs">
-                                                <connections>
-                                                    <action selector="didTouchAddNewInventory:" destination="UoS-hy-nhG" id="V7x-bF-v99"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem title="Item" image="wifi" catalog="system" id="IQ1-kF-CNI">
-                                                <connections>
-                                                    <action selector="didTouchWorkOffline:" destination="UoS-hy-nhG" id="Du0-jr-0NJ"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uiQ-HN-4tg">
+                                <rect key="frame" x="16" y="109" width="361" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Only My Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-RB-3zn">
+                                        <rect key="frame" x="0.0" y="8" width="304" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78w-Jq-REm">
+                                        <rect key="frame" x="312" y="4.6666666666666714" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zuj-wa-ads"/>
+                                </constraints>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-0p-0za">
                                 <rect key="frame" x="0.0" y="159" width="393" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -204,23 +194,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uiQ-HN-4tg">
-                                <rect key="frame" x="16" y="109" width="361" height="40"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Only My Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-RB-3zn">
-                                        <rect key="frame" x="0.0" y="8" width="304" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78w-Jq-REm">
-                                        <rect key="frame" x="312" y="4.6666666666666714" width="51" height="31"/>
-                                    </switch>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="zuj-wa-ads"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Za-5a-OMA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,7 +204,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="uiQ-HN-4tg" secondAttribute="trailing" id="Su6-KA-c0d"/>
                             <constraint firstItem="v6E-0p-0za" firstAttribute="leading" secondItem="7Za-5a-OMA" secondAttribute="leading" id="eZA-ad-2qi"/>
                             <constraint firstItem="v6E-0p-0za" firstAttribute="top" secondItem="uiQ-HN-4tg" secondAttribute="bottom" constant="10" id="fdx-8w-DK0"/>
-                            <constraint firstItem="uiQ-HN-4tg" firstAttribute="top" secondItem="7Za-5a-OMA" secondAttribute="top" constant="50" id="lLw-Nq-xUk"/>
+                            <constraint firstItem="uiQ-HN-4tg" firstAttribute="top" secondItem="RPn-s2-3I4" secondAttribute="topMargin" constant="50" id="lLw-Nq-xUk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -492,8 +465,6 @@
     </scenes>
     <resources>
         <image name="flashlight.on.fill" catalog="system" width="78" height="128"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="wifi" catalog="system" width="128" height="90"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
