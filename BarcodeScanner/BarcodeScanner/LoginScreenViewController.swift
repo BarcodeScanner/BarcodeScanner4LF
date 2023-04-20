@@ -16,49 +16,49 @@ class ApplicationManager {
                 case .clientSessionError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .clientUserError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .clientInternalError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .clientResetError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .underlyingAuthError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .permissionDeniedError:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .invalidFlexibleSyncSubscriptions:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 case .writeRejected:
                     if let errorInfo = thisError.compensatingWriteInfo {
                         for anError in errorInfo {
-                            print(anError.reason)
+                            print(anError.reason as Any)
                         }
                     }
                 @unknown default:
@@ -93,7 +93,7 @@ class LoginScreenViewController: UIViewController {
                 try await app.emailPasswordAuth.registerUser(email: email, password: password)
                 print("Successfully registered user")
                 ApplicationManager.shared.user =  try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
-                goToFirstScreen()
+                goToInventoriesScreen()
             } catch {
                 print("Failed to register user: \(error.localizedDescription)")
             }

@@ -10,7 +10,7 @@ class InventoriesViewController: UIViewController {
         super.viewDidLoad()
         let logOutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(didTouchLogOut))
         navigationItem.leftBarButtonItem = logOutBarButton
-        // Do any additional setup after loading the view.
+        
     }
     
     @objc func didTouchLogOut() {
