@@ -3,10 +3,13 @@ import UIKit
 class CreateInventoryViewController: UIViewController {
 
     @IBOutlet weak var inventoryName: UITextField!
+    
     @IBAction func didTouchCreate(_ sender: UIButton) {
+        
     }
     
     @IBAction func didTouchCancel(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

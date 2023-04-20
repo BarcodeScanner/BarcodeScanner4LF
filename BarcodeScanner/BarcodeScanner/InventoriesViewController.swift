@@ -10,7 +10,9 @@ class InventoriesViewController: UIViewController {
         super.viewDidLoad()
         let logOutBarButton = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(didTouchLogOut))
         navigationItem.leftBarButtonItem = logOutBarButton
-        
+        let newinventoryImage = UIImage(systemName: "plus")
+        let newInventoryButton = UIBarButtonItem(image: newinventoryImage, style: .plain, target: self, action: #selector(goToNewInventoryScreen))
+        navigationItem.rightBarButtonItem = newInventoryButton
     }
     
     @objc func didTouchLogOut() {
@@ -24,6 +26,14 @@ class InventoriesViewController: UIViewController {
                 print("Failed to log user out: \(error.localizedDescription)")
             }
         }
+    }
+    
+    @objc func goToNewInventoryScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let newInventoryScreenViewController = storyboard.instantiateViewController(withIdentifier: "CreateInventoryViewController") as? CreateInventoryViewController else { return }
+        self.navigationController?.pushViewController(newInventoryScreenViewController, animated: true)
+        
+        // self.navigationController?.setViewControllers([newInventoryScreenViewController], animated: true)
     }
 
     func goToLoginScreen() {

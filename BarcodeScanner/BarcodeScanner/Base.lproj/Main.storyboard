@@ -219,7 +219,7 @@
         <!--New Inventory-->
         <scene sceneID="bdH-8E-CyS">
             <objects>
-                <viewController title="New Inventory" id="C5H-Bh-C44" customClass="CreateInventoryViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateInventoryViewController" title="New Inventory" id="C5H-Bh-C44" customClass="CreateInventoryViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDp-RG-9Dk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

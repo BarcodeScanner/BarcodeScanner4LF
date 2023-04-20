@@ -106,7 +106,7 @@ class LoginScreenViewController: UIViewController {
 
         if let user = app.currentUser {
             ApplicationManager.shared.user = user
-            self.goToFirstScreen()
+            self.goToInventoriesScreen()
         } else {
             emailTextField.delegate = self
             passwordTextField.delegate = self
