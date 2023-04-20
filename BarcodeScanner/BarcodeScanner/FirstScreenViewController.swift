@@ -19,6 +19,8 @@ class FirstScreenViewController: UIViewController {
             if subscriptions.first(named: "all_products") == nil {
                 subscriptions.append(QuerySubscription<Product>(name: "all_products"))
             }
+            
+            
         }
         return realm
     }

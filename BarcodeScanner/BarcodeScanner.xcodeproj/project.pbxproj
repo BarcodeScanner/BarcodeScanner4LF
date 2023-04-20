@@ -10,6 +10,7 @@
 		3F9D74D74D31A4F1151F8A38 /* Pods_BarcodeScanner_BarcodeScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF9E7A43B7D44CECBB46AD5 /* Pods_BarcodeScanner_BarcodeScannerUITests.framework */; };
 		6F70837E6988082383B19ED6 /* Pods_BarcodeScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B53CCF81B8892B6AA8C08D /* Pods_BarcodeScanner.framework */; };
 		6FE67258F8F66F7A0CA842C0 /* Pods_BarcodeScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98783FB9430422D7BF0B4CC0 /* Pods_BarcodeScannerTests.framework */; };
+		86295BBF29F156D0006251DE /* InventoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86295BBE29F156D0006251DE /* InventoriesViewController.swift */; };
 		8676168429EFDDCC002D1526 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8676168329EFDDCC002D1526 /* AppConfig.swift */; };
 		8676168629EFDE79002D1526 /* atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8676168529EFDE78002D1526 /* atlas.plist */; };
 		8676168729EFDEEC002D1526 /* chec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D7229DF587200B1D2BB /* chec.plist */; };
@@ -53,6 +54,7 @@
 		67F53121348C8781C7693361 /* Pods-BarcodeScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeScanner.debug.xcconfig"; path = "Target Support Files/Pods-BarcodeScanner/Pods-BarcodeScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		6BF837690E37B260D8ED906F /* Pods-BarcodeScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeScanner.release.xcconfig"; path = "Target Support Files/Pods-BarcodeScanner/Pods-BarcodeScanner.release.xcconfig"; sourceTree = "<group>"; };
 		71C678FF9C75656F8CA06288 /* Pods-BarcodeScanner-BarcodeScannerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeScanner-BarcodeScannerUITests.debug.xcconfig"; path = "Target Support Files/Pods-BarcodeScanner-BarcodeScannerUITests/Pods-BarcodeScanner-BarcodeScannerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		86295BBE29F156D0006251DE /* InventoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoriesViewController.swift; sourceTree = "<group>"; };
 		8676168329EFDDCC002D1526 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		8676168529EFDE78002D1526 /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = atlas.plist; sourceTree = "<group>"; };
 		868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				86CE0D7229DF587200B1D2BB /* chec.plist */,
 				86AF0B1129E021E400399E5F /* ManageProductViewController.swift */,
 				868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */,
+				86295BBE29F156D0006251DE /* InventoriesViewController.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				8676168429EFDDCC002D1526 /* AppConfig.swift in Sources */,
 				9514B45929F079D9000AAF76 /* CameraBarcodeReaderViewController.swift in Sources */,
 				86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */,
+				86295BBF29F156D0006251DE /* InventoriesViewController.swift in Sources */,
 				868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */,
 				86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */,
 				86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */,

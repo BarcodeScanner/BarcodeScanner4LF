@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -134,6 +135,114 @@
             </objects>
             <point key="canvasLocation" x="-811" y="714"/>
         </scene>
+        <!--Inventories View Controller-->
+        <scene sceneID="11e-M6-0XU">
+            <objects>
+                <viewController id="UoS-hy-nhG" customClass="InventoriesViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RPn-s2-3I4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V52-GM-50y">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Inventory" id="Of5-4j-wu2">
+                                        <barButtonItem key="leftBarButtonItem" title="Log out" id="SBe-dK-Rvg">
+                                            <color key="tintColor" red="0.57400663299999999" green="0.45441131309999999" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="didTouchLogOut:" destination="UoS-hy-nhG" id="xC2-JW-XSy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" image="plus" catalog="system" id="9EV-uZ-5qs">
+                                                <connections>
+                                                    <action selector="didTouchAddNewInventory:" destination="UoS-hy-nhG" id="V7x-bF-v99"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="wifi" catalog="system" id="IQ1-kF-CNI">
+                                                <connections>
+                                                    <action selector="didTouchWorkOffline:" destination="UoS-hy-nhG" id="Du0-jr-0NJ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-0p-0za">
+                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="f3w-FR-OSp">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f3w-FR-OSp" id="Vgc-I4-PUu">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-iz-WYo">
+                                                    <rect key="frame" x="20" y="22" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-qe-sTW">
+                                                    <rect key="frame" x="20" y="11.666666666666666" width="120" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4nO-iz-WYo" firstAttribute="leading" secondItem="Vgc-I4-PUu" secondAttribute="leadingMargin" id="6YE-6O-OAf"/>
+                                                <constraint firstItem="4nO-iz-WYo" firstAttribute="centerY" secondItem="Vgc-I4-PUu" secondAttribute="centerY" id="Bwi-c3-10I"/>
+                                                <constraint firstItem="UlO-qe-sTW" firstAttribute="centerY" secondItem="Vgc-I4-PUu" secondAttribute="centerY" id="Tg1-84-bDy"/>
+                                                <constraint firstItem="UlO-qe-sTW" firstAttribute="leading" secondItem="Vgc-I4-PUu" secondAttribute="leadingMargin" id="yIp-rn-iAf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uiQ-HN-4tg">
+                                <rect key="frame" x="16" y="109" width="361" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Only My Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-RB-3zn">
+                                        <rect key="frame" x="0.0" y="8" width="304" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78w-Jq-REm">
+                                        <rect key="frame" x="312" y="4.6666666666666714" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zuj-wa-ads"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Za-5a-OMA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Za-5a-OMA" firstAttribute="trailing" secondItem="v6E-0p-0za" secondAttribute="trailing" id="3Ci-6h-TUV"/>
+                            <constraint firstItem="uiQ-HN-4tg" firstAttribute="leading" secondItem="RPn-s2-3I4" secondAttribute="leadingMargin" id="8d7-tp-Vok"/>
+                            <constraint firstItem="7Za-5a-OMA" firstAttribute="bottom" secondItem="v6E-0p-0za" secondAttribute="bottom" id="QLx-Yf-nCM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uiQ-HN-4tg" secondAttribute="trailing" id="Su6-KA-c0d"/>
+                            <constraint firstItem="v6E-0p-0za" firstAttribute="leading" secondItem="7Za-5a-OMA" secondAttribute="leading" id="eZA-ad-2qi"/>
+                            <constraint firstItem="v6E-0p-0za" firstAttribute="top" secondItem="uiQ-HN-4tg" secondAttribute="bottom" constant="10" id="fdx-8w-DK0"/>
+                            <constraint firstItem="uiQ-HN-4tg" firstAttribute="top" secondItem="7Za-5a-OMA" secondAttribute="top" constant="50" id="lLw-Nq-xUk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inventoriesTableView" destination="v6E-0p-0za" id="Tdg-gm-El7"/>
+                        <outlet property="showMyTaskSwitch" destination="78w-Jq-REm" id="cGU-Pd-MRK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLC-L1-bCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-51.145038167938928" y="712.67605633802816"/>
+        </scene>
         <!--First Screen View Controller-->
         <scene sceneID="wuE-lO-EgK">
             <objects>
@@ -173,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou6-LM-WXc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811" y="-90"/>
+            <point key="canvasLocation" x="-811" y="-27"/>
         </scene>
         <!--Manage Product View Controller-->
         <scene sceneID="f9v-kv-8dG">
@@ -383,6 +492,8 @@
     </scenes>
     <resources>
         <image name="flashlight.on.fill" catalog="system" width="78" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="wifi" catalog="system" width="128" height="90"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
