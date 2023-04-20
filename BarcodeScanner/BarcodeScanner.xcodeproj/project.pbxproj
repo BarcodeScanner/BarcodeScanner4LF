@@ -14,7 +14,6 @@
 		8676168629EFDE79002D1526 /* atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8676168529EFDE78002D1526 /* atlas.plist */; };
 		8676168729EFDEEC002D1526 /* chec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D7229DF587200B1D2BB /* chec.plist */; };
 		868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */; };
-		86AF0B0129E005E600399E5F /* CameraBarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0029E005E600399E5F /* CameraBarcodeReaderViewController.swift */; };
 		86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */; };
 		86AF0B0729E01E4300399E5F /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */; };
 		86AF0B0C29E01FC800399E5F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86AF0B0B29E01FC800399E5F /* Realm */; };
@@ -29,6 +28,7 @@
 		86CE0D7C29DF587200B1D2BB /* BarcodeScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D7B29DF587200B1D2BB /* BarcodeScannerTests.swift */; };
 		86CE0D8629DF587200B1D2BB /* BarcodeScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D8529DF587200B1D2BB /* BarcodeScannerUITests.swift */; };
 		86CE0D8829DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D8729DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift */; };
+		9514B45929F079D9000AAF76 /* CameraBarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9514B45829F079D9000AAF76 /* CameraBarcodeReaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,6 @@
 		8676168329EFDDCC002D1526 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		8676168529EFDE78002D1526 /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = atlas.plist; sourceTree = "<group>"; };
 		868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
-		86AF0B0029E005E600399E5F /* CameraBarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CameraBarcodeReaderViewController.swift; path = "../../../../.Trash/BarcodeScanner 10.52.28/BarcodeScanner/CameraBarcodeReaderViewController.swift"; sourceTree = "<group>"; };
 		86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		86AF0B0F29E0207300399E5F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		86CE0D8529DF587200B1D2BB /* BarcodeScannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerUITests.swift; sourceTree = "<group>"; };
 		86CE0D8729DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8F2656BEEDFB611B7A6EE32C /* Pods-BarcodeScannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarcodeScannerTests.release.xcconfig"; path = "Target Support Files/Pods-BarcodeScannerTests/Pods-BarcodeScannerTests.release.xcconfig"; sourceTree = "<group>"; };
+		9514B45829F079D9000AAF76 /* CameraBarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraBarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		98783FB9430422D7BF0B4CC0 /* Pods_BarcodeScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B53CCF81B8892B6AA8C08D /* Pods_BarcodeScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF9E7A43B7D44CECBB46AD5 /* Pods_BarcodeScanner_BarcodeScannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarcodeScanner_BarcodeScannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +163,7 @@
 				86CE0D6429DF587200B1D2BB /* AppDelegate.swift */,
 				86CE0D6629DF587200B1D2BB /* SceneDelegate.swift */,
 				86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */,
-				86AF0B0029E005E600399E5F /* CameraBarcodeReaderViewController.swift */,
+				9514B45829F079D9000AAF76 /* CameraBarcodeReaderViewController.swift */,
 				86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */,
 				86AF0B0F29E0207300399E5F /* Product.swift */,
 				86CE0D6A29DF587200B1D2BB /* Main.storyboard */,
@@ -442,8 +442,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8676168429EFDDCC002D1526 /* AppConfig.swift in Sources */,
+				9514B45929F079D9000AAF76 /* CameraBarcodeReaderViewController.swift in Sources */,
 				86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */,
-				86AF0B0129E005E600399E5F /* CameraBarcodeReaderViewController.swift in Sources */,
 				868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */,
 				86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */,
 				86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */,

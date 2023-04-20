@@ -13,5 +13,6 @@ class Product: Object, ObjectKeyIdentifiable {
         self.name = name
         self.barcode = barcode
         self.quantity = quantity
+        self.owner_id = ApplicationManager.shared.user?.id ?? ""
     }
 }

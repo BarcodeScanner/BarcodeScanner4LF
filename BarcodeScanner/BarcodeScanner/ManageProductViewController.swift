@@ -36,10 +36,10 @@ class ManageProductViewController: UIViewController {
         guard let product = productModel, let realm = ApplicationManager.shared.realm else { return }
         self.refresh()
         do {
-            
             try realm.write {
                 realm.add(product)
             }
+            
         } catch let error {
             print(error.localizedDescription)
         }
@@ -60,7 +60,6 @@ class ManageProductViewController: UIViewController {
     func refresh() {
         productModel?.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
         productModel?.name = self.productName.text ?? ""
-        productModel?.barcode = self.barcode.text ?? ""
         productModel?.owner_id = app.currentUser?.id ?? ""
     }
 }

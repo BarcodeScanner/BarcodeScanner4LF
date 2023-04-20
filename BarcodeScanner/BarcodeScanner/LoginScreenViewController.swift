@@ -6,9 +6,66 @@ class ApplicationManager {
     var realmConfiguration: Realm.Configuration?
     var user: User?
     var realm: Realm?
+    @ObservedResults(Product.self) var products
     
     private init() {
-        
+        app.syncManager.errorHandler = { syncError, session in
+            if let thisError = syncError as? SyncError {
+                switch thisError.code {
+                    
+                case .clientSessionError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .clientUserError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .clientInternalError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .clientResetError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .underlyingAuthError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .permissionDeniedError:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .invalidFlexibleSyncSubscriptions:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                case .writeRejected:
+                    if let errorInfo = thisError.compensatingWriteInfo {
+                        for anError in errorInfo {
+                            print(anError.reason)
+                        }
+                    }
+                @unknown default:
+                    break
+                }
+            }
+        }
     }
 }
 
@@ -46,21 +103,9 @@ class LoginScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let user = app.currentUser {
-            let config = user.flexibleSyncConfiguration(initialSubscriptions: { subs in
-                subs.remove(named: Constants.allItems)
-                if let _ = subs.first(named: Constants.myItems) {
-                    // Existing subscription found - do nothing
-                    return
-                } else {
-                    // No subscription - create it
-                    subs.append(QuerySubscription<Product>(name: Constants.myItems) {
-                        $0.owner_id == user.id
-                    })
-                }
-            }, rerunOnOpen: true)
-            ApplicationManager.shared.realmConfiguration = config
+            ApplicationManager.shared.user = user
             self.goToFirstScreen()
         } else {
             emailTextField.delegate = self
