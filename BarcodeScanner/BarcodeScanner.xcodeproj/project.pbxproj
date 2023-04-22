@@ -27,6 +27,8 @@
 		86AF0B1229E021E400399E5F /* ManageProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B1129E021E400399E5F /* ManageProductViewController.swift */; };
 		86C5E19F29F3F82200E49BDE /* InventoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5E19E29F3F82200E49BDE /* InventoryDetailsViewController.swift */; };
 		86C5E1A129F3F88E00E49BDE /* ProductInInventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5E1A029F3F88E00E49BDE /* ProductInInventoryTableViewCell.swift */; };
+		86C5E1A329F4058300E49BDE /* ScannedProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5E1A229F4058300E49BDE /* ScannedProductDetailsViewController.swift */; };
+		86C5E1A529F4105100E49BDE /* PleaseWaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5E1A429F4105100E49BDE /* PleaseWaitViewController.swift */; };
 		86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D6429DF587200B1D2BB /* AppDelegate.swift */; };
 		86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE0D6629DF587200B1D2BB /* SceneDelegate.swift */; };
 		86CE0D6C29DF587200B1D2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D6A29DF587200B1D2BB /* Main.storyboard */; };
@@ -74,6 +76,8 @@
 		86AF0B1129E021E400399E5F /* ManageProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProductViewController.swift; sourceTree = "<group>"; };
 		86C5E19E29F3F82200E49BDE /* InventoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryDetailsViewController.swift; sourceTree = "<group>"; };
 		86C5E1A029F3F88E00E49BDE /* ProductInInventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInInventoryTableViewCell.swift; sourceTree = "<group>"; };
+		86C5E1A229F4058300E49BDE /* ScannedProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedProductDetailsViewController.swift; sourceTree = "<group>"; };
+		86C5E1A429F4105100E49BDE /* PleaseWaitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseWaitViewController.swift; sourceTree = "<group>"; };
 		86CE0D6129DF587200B1D2BB /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CE0D6429DF587200B1D2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CE0D6629DF587200B1D2BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				86A8C42729F1A82C004D9608 /* ApplicationManager.swift */,
 				86C5E19E29F3F82200E49BDE /* InventoryDetailsViewController.swift */,
 				86C5E1A029F3F88E00E49BDE /* ProductInInventoryTableViewCell.swift */,
+				86C5E1A229F4058300E49BDE /* ScannedProductDetailsViewController.swift */,
+				86C5E1A429F4105100E49BDE /* PleaseWaitViewController.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -471,6 +477,8 @@
 				868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */,
 				86295BC129F16FAE006251DE /* Inventory.swift in Sources */,
 				86CE0D6529DF587200B1D2BB /* AppDelegate.swift in Sources */,
+				86C5E1A529F4105100E49BDE /* PleaseWaitViewController.swift in Sources */,
+				86C5E1A329F4058300E49BDE /* ScannedProductDetailsViewController.swift in Sources */,
 				86C5E1A129F3F88E00E49BDE /* ProductInInventoryTableViewCell.swift in Sources */,
 				86295BC329F17289006251DE /* CreateInventoryViewController.swift in Sources */,
 				86CE0D6729DF587200B1D2BB /* SceneDelegate.swift in Sources */,

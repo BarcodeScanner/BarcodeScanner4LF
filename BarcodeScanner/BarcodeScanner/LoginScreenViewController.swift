@@ -47,13 +47,9 @@ class LoginScreenViewController: UIViewController {
     }
     
     func continueApp(with user: User) {
-        Task {
-            do {
-                try await self.goToInventoriesScreen(with: user)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+        guard let loadingViewController = self.storyboard?.instantiateViewController(withIdentifier: "PleaseWaitViewController") as? PleaseWaitViewController else { return }
+        
+        self.navigationController?.setViewControllers([loadingViewController], animated: false)
     }
     
     func goToFirstScreen(with user: User) async throws {
@@ -64,13 +60,7 @@ class LoginScreenViewController: UIViewController {
         self.navigationController?.setViewControllers([firstScreenViewController], animated: true)
     }
     
-    func goToInventoriesScreen(with user: User) async throws  {
-        ApplicationManager.shared.realm = try await ApplicationManager.shared.openFlexibleSyncRealm(for: user)
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let inventoriesScreenViewController = storyboard.instantiateViewController(withIdentifier: "InventoriesViewController") as? InventoriesViewController else { return }
-        
-        self.navigationController?.setViewControllers([inventoriesScreenViewController], animated: true)
-    }
+    
         
     func openRealm(for user: User) async {
         do {

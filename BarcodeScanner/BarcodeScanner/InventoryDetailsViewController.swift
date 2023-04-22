@@ -112,6 +112,11 @@ extension InventoryDetailsViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let productDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ScannedProductDetailsViewController") as? ScannedProductDetailsViewController, let inventory = self.inventory else { return }
+        let product = inventory.products[indexPath.row]
+        productDetailsViewController.product = product
         
+        self.navigationController?.pushViewController(productDetailsViewController, animated: true)
     }
 }
