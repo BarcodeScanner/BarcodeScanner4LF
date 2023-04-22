@@ -80,4 +80,11 @@ extension InventoriesViewController: UITableViewDelegate, UITableViewDataSource 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let inventoryDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryDetailsViewController") as? InventoryDetailsViewController, let inventory = self.inventories?[indexPath.row] else { return }
+        inventoryDetailsViewController.inventory = inventory
+        
+        self.navigationController?.pushViewController(inventoryDetailsViewController, animated: true)
+    }
 }
