@@ -59,25 +59,6 @@ class LoginScreenViewController: UIViewController {
         
         self.navigationController?.setViewControllers([firstScreenViewController], animated: true)
     }
-    
-    
-        
-    func openRealm(for user: User) async {
-        do {
-            
-            /*
-             print(ApplicationManager.shared.realm?.objects(Product.self).count)
-             ApplicationManager.shared.realm?.beginWrite()
-             ApplicationManager.shared.realm?.objects(Product.self).forEach({
-             ApplicationManager.shared.realm?.delete($0)
-             })
-             try ApplicationManager.shared.realm?.commitWrite()
-             */
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-    }
 }
 
 extension LoginScreenViewController: UITextFieldDelegate {

@@ -87,4 +87,18 @@ extension InventoriesViewController: UITableViewDelegate, UITableViewDataSource 
         
         self.navigationController?.pushViewController(inventoryDetailsViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            do {
+                guard let inventory = self.inventories?[indexPath.row] else { return }
+                ApplicationManager.shared.realm?.beginWrite()
+                ApplicationManager.shared.realm?.delete(inventory)
+                try ApplicationManager.shared.realm?.commitWrite()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
