@@ -11,6 +11,7 @@ class LoginScreenViewController: UIViewController {
         Task.init {
             do {
                 let user = try await app.login(credentials: Credentials.emailPassword(email: email, password: password))
+                UserDefaults.standard.set(email, forKey: "useremail")
                 ApplicationManager.shared.user = user
                 self.continueApp(with: user)
             } catch {
@@ -36,24 +37,26 @@ class LoginScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         if let user = app.currentUser {
             ApplicationManager.shared.user = user
             self.continueApp(with: user)
-        } else {
-            emailTextField.delegate = self
-            passwordTextField.delegate = self
         }
     }
     
     func continueApp(with user: User) {
-        guard let loadingViewController = self.storyboard?.instantiateViewController(withIdentifier: "PleaseWaitViewController") as? PleaseWaitViewController else { return }
-        
-        self.navigationController?.setViewControllers([loadingViewController], animated: false)
+        guard let usermail = UserDefaults.standard.string(forKey: "useremail") else { return }
+        if usermail.hasPrefix("admin@") {
+            self.goToFirstScreen()
+        } else {
+            guard let loadingViewController = self.storyboard?.instantiateViewController(withIdentifier: "PleaseWaitViewController") as? PleaseWaitViewController else { return }
+            self.navigationController?.setViewControllers([loadingViewController], animated: false)
+        }
     }
     
-    func goToFirstScreen(with user: User) async throws {
-        ApplicationManager.shared.realm = try await ApplicationManager.shared.openFlexibleSyncRealm(for: user)
+    func goToFirstScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let firstScreenViewController = storyboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as? FirstScreenViewController else { return }
         
