@@ -24,9 +24,15 @@ class InventoriesViewController: UIViewController {
                     // Results are now populated and can be accessed without blocking the UI
                 case .update(_, let deletions, let insertions, let modifications):
                     // Query results have changed.
+                if !deletions.isEmpty {
                     print("Deleted indices: ", deletions)
+                    self.inventoriesTableView.deleteRows(at: deletions.compactMap { IndexPath(row: $0, section: 0) } , with: .fade)
+                }
+                if !insertions.isEmpty {
                     print("Inserted indices: ", insertions)
-                    print("Modified modifications: ", modifications)
+                    self.inventoriesTableView.reloadData()
+                }
+                print("Modified modifications: ", modifications)
                 case .error(let error):
                     // An error occurred while opening the Realm file on the background worker thread
                     fatalError("\(error)")
@@ -34,11 +40,6 @@ class InventoriesViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.inventoriesTableView.reloadData()
-    }
-        
     @objc func didTouchLogOut() {
         guard let user = ApplicationManager.shared.user else { return }
         Task.init {
@@ -51,6 +52,37 @@ class InventoriesViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func didChangeShowInventories(_ sender: UISwitch) {
+        Task {
+            await self.loadInventories()
+        }
+    }
+    
+    private func loadInventories() async {
+        guard let subscriptions = ApplicationManager.shared.realm?.subscriptions, let user = ApplicationManager.shared.user else { return }
+        
+        try? await subscriptions.update {
+            if !showMyTaskSwitch.isOn {
+                if subscriptions.first(named: Constants.my_inventories) != nil {
+                    subscriptions.remove(named: Constants.my_inventories)
+                }
+                if subscriptions.first(named: Constants.allInventories) == nil {
+                    subscriptions.append(QuerySubscription<Inventory>(name: Constants.allInventories))
+                }
+            } else {
+                if subscriptions.first(named: Constants.allInventories) != nil {
+                    subscriptions.remove(named: Constants.allInventories)
+                }
+                if subscriptions.first(named: Constants.my_inventories) == nil {
+                    subscriptions.append(QuerySubscription<Inventory>(name: Constants.my_inventories) {
+                        $0.owner_id == user.id
+                    })
+                }
+            }
+        }
+    }
+    
     
     @objc func goToNewInventoryScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -82,6 +114,7 @@ extension InventoriesViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         guard let inventoryDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "InventoryDetailsViewController") as? InventoryDetailsViewController, let inventory = self.inventories?[indexPath.row] else { return }
         inventoryDetailsViewController.inventory = inventory
         
@@ -95,7 +128,7 @@ extension InventoriesViewController: UITableViewDelegate, UITableViewDataSource 
                 ApplicationManager.shared.realm?.beginWrite()
                 ApplicationManager.shared.realm?.delete(inventory)
                 try ApplicationManager.shared.realm?.commitWrite()
-                tableView.deleteRows(at: [indexPath], with: .fade)
+               
             } catch {
                 print(error.localizedDescription)
             }

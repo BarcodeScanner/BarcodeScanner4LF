@@ -2,8 +2,9 @@ import Foundation
 import RealmSwift
 
 struct Constants {
-    static let allItems = "all_items"
-    static let myItems = "my_items"
+    static let allProducts = "all_products"
+    static let allInventories = "all_inventories"
+    static let my_inventories = "my_inventories"
 }
 
 struct AppConfig {

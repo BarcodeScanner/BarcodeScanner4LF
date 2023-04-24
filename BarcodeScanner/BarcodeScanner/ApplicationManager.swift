@@ -82,11 +82,11 @@ class ApplicationManager {
         print("Successfully opened realm: \(realm)")
         let subscriptions = realm.subscriptions
         try await subscriptions.update {
-            if subscriptions.first(named: "all_products") == nil {
-                subscriptions.append(QuerySubscription<Product>(name: "all_products"))
+            if subscriptions.first(named: Constants.allProducts) == nil {
+                subscriptions.append(QuerySubscription<Product>(name: Constants.allProducts))
             }
-            if subscriptions.first(named: "all_inventories") == nil {
-                subscriptions.append(QuerySubscription<Inventory>(name: "all_inventories"))
+            if subscriptions.first(named: Constants.allInventories) == nil {
+                subscriptions.append(QuerySubscription<Inventory>(name: Constants.allInventories))
             }
         }
         return realm
