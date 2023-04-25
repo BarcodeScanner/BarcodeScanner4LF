@@ -1,10 +1,3 @@
-//
-//  ProductInInventoryTableViewCell.swift
-//  BarcodeScanner
-//
-//  Created by Crina Ciobotaru on 22.04.2023.
-//
-
 import UIKit
 
 class ProductInInventoryTableViewCell: UITableViewCell {

@@ -16,9 +16,9 @@ class LoginScreenViewController: UIViewController {
                 self.continueApp(with: user)
             } catch {
                 print("Failed to login user: \(error.localizedDescription)")
+                self.invalidEmailOrPasswordAlert()
             }
         }
-        
     }
     @IBAction func didTouchCreateAccount(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
@@ -61,6 +61,12 @@ class LoginScreenViewController: UIViewController {
         guard let firstScreenViewController = storyboard.instantiateViewController(withIdentifier: "FirstScreenViewController") as? FirstScreenViewController else { return }
         
         self.navigationController?.setViewControllers([firstScreenViewController], animated: true)
+    }
+    
+    func invalidEmailOrPasswordAlert() {
+        let alert = UIAlertController(title: "Error", message: "Invalid Email or Password", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

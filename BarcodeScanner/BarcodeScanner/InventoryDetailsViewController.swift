@@ -1,10 +1,3 @@
-//
-//  InventoryDetailsViewController.swift
-//  BarcodeScanner
-//
-//  Created by Crina Ciobotaru on 22.04.2023.
-//
-
 import UIKit
 import Combine
 import RealmSwift

@@ -46,7 +46,7 @@ class InventoriesViewController: UIViewController {
             do {
                 try await user.logOut()
                 print("Successfully logged user out")
-                goToLoginScreen()
+                logoutAlert()
             } catch {
                 print("Failed to log user out: \(error.localizedDescription)")
             }
@@ -95,6 +95,17 @@ class InventoriesViewController: UIViewController {
         guard let inventoriesScreenViewController = storyboard.instantiateViewController(withIdentifier: "LoginScreenViewController") as? LoginScreenViewController else { return }
         
         self.navigationController?.setViewControllers([inventoriesScreenViewController], animated: true)
+    }
+    
+    func logoutAlert() {
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {_ in
+            self.goToLoginScreen()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -444,6 +444,21 @@
             </objects>
             <point key="canvasLocation" x="-811" y="1350"/>
         </scene>
+        <!--Reports-->
+        <scene sceneID="era-as-qa7">
+            <objects>
+                <viewController storyboardIdentifier="ReportsViewController" title="Reports" id="eZL-BI-slF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1kM-71-KdS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3ch-3T-kwt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zna-H7-NuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="1350"/>
+        </scene>
         <!--First Screen View Controller-->
         <scene sceneID="wuE-lO-EgK">
             <objects>
