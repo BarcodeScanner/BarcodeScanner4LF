@@ -51,7 +51,7 @@ class ManageProductViewController: UIViewController {
             try realm.write {
                 product.name = self.productName.text ?? ""
                 product.price = self.productPrice.text ?? ""
-               // product.price = Int(self.quantityTextField.text ?? "1") ?? 0
+                self.updateInDatabase()
             }
         } catch let error {
             print(error.localizedDescription)
@@ -59,7 +59,6 @@ class ManageProductViewController: UIViewController {
     }
     
     func refresh() {
-        // productModel?.quantity = Int(self.quantityTextField.text ?? "1") ?? 0
         productModel?.price = self.productPrice.text ?? ""
         productModel?.name = self.productName.text ?? ""
         productModel?.owner_id = app.currentUser?.id ?? ""
@@ -67,6 +66,16 @@ class ManageProductViewController: UIViewController {
     
     func addToDatabase() {
         let alert = UIAlertController(title: nil, message: "The product was added", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
+            self.goToFirstScreen()
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func updateInDatabase() {
+        let alert = UIAlertController(title: nil, message: "The product was updated", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_ in
             self.goToFirstScreen()
