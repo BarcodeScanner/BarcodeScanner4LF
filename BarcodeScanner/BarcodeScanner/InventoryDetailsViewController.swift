@@ -69,7 +69,9 @@ class InventoryDetailsViewController: UIViewController {
         guard let stringValue = stringValue else { return }
         guard let realm = ApplicationManager.shared.realm else { return }
         guard let dbProduct = ApplicationManager.shared.realm?.objects(Product.self).first(where: { print($0.barcode)
-            return $0.barcode == stringValue }) else { return }
+            return $0.barcode == stringValue }) else {
+            noBarcodeFounded()
+            return }
         do {
             
             try realm.write {
@@ -80,15 +82,23 @@ class InventoryDetailsViewController: UIViewController {
                     self.inventory?.products.append(product)
                 }
             }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    @objc func goToReports() {
+          } catch {
+              print(error.localizedDescription)
+          }
+      }
+      @objc func goToReports() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let newInventoryScreenViewController = storyboard.instantiateViewController(withIdentifier: "BarChartViewController") as? BarChartViewController else { return }
         newInventoryScreenViewController.inventory = self.inventory
         self.navigationController?.pushViewController(newInventoryScreenViewController, animated: true)
+    }
+    
+    func noBarcodeFounded() {
+        let alert = UIAlertController(title: nil, message: "Unregistered product", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
