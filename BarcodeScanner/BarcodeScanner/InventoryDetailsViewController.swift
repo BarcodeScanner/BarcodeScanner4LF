@@ -7,7 +7,7 @@ class InventoryDetailsViewController: UIViewController {
     @IBOutlet weak var productsInInventory: UITableView!
     @IBOutlet weak var totalCountOfProducts: UILabel!
     @IBAction func didTouchReportInventory(_ sender: UIButton) {
-        
+        self.goToReports()
     }
     
     var inventory: Inventory?
@@ -83,6 +83,12 @@ class InventoryDetailsViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    @objc func goToReports() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let newInventoryScreenViewController = storyboard.instantiateViewController(withIdentifier: "BarChartViewController") as? BarChartViewController else { return }
+        newInventoryScreenViewController.inventory = self.inventory
+        self.navigationController?.pushViewController(newInventoryScreenViewController, animated: true)
     }
 }
 

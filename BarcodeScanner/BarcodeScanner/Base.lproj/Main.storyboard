@@ -484,13 +484,28 @@
         <!--Reports-->
         <scene sceneID="era-as-qa7">
             <objects>
-                <viewController storyboardIdentifier="ReportsViewController" title="Reports" id="eZL-BI-slF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BarChartViewController" title="Reports" id="eZL-BI-slF" customClass="BarChartViewController" customModule="BarcodeScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kM-71-KdS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noB-rO-VLE" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="58" y="315" width="277" height="247"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3ch-3T-kwt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="top" secondItem="3ch-3T-kwt" secondAttribute="top" constant="256" id="MNy-Df-gOs"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="centerX" secondItem="3ch-3T-kwt" secondAttribute="centerX" id="ScZ-sB-Usi"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="centerY" secondItem="3ch-3T-kwt" secondAttribute="centerY" id="rxX-x4-TU9"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="leading" secondItem="3ch-3T-kwt" secondAttribute="leading" constant="58" id="wyl-FU-pBt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barChartView" destination="noB-rO-VLE" id="9d7-v9-8M8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zna-H7-NuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

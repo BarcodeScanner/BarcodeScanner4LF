@@ -8,6 +8,7 @@ target 'BarcodeScanner' do
   # Pods for BarcodeScanner
   pod 'SQFeedbackGenerator' # for generating haptic events
   pod 'MBProgressHUD' # for display of the HUD (loading, downloading, etc.)
+  pod 'Charts'
   target 'BarcodeScannerTests' do
     inherit! :search_paths
     # Pods for testing
