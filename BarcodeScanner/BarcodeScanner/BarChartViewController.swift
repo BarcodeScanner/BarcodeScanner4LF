@@ -16,6 +16,16 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
         
         self.getPriceProducts()
         priceChartSetUp()
+        
+        let newinventoryImage = UIImage(systemName: "plus")
+        let newInventoryButton = UIBarButtonItem(image: newinventoryImage, style: .plain, target: self, action: #selector(exportToCSV))
+        navigationItem.rightBarButtonItem = newInventoryButton
+    }
+    
+    @objc func exportToCSV() {
+        guard let inventory = self.inventory else { return }
+        let csvExporter = CSVExporter()
+        csvExporter.export(inventory: inventory)
     }
     
     func barChartData(productName: [String], values: [Int]) {

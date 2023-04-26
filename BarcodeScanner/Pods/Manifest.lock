@@ -3,28 +3,32 @@ PODS:
     - Charts/Core (= 4.1.0)
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
+  - CSV.swift (2.4.3)
   - MBProgressHUD (1.2.0)
   - SQFeedbackGenerator (0.1.1)
   - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Charts
+  - CSV.swift
   - MBProgressHUD
   - SQFeedbackGenerator
 
 SPEC REPOS:
   trunk:
     - Charts
+    - CSV.swift
     - MBProgressHUD
     - SQFeedbackGenerator
     - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Charts: 354f86803d11d9c35de280587fef50d1af063978
+  CSV.swift: d38741b349c067b4a6db42237cb0e2974d21ccac
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SQFeedbackGenerator: 007356526d4a45da5251505c91687a3743b58a00
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 59067f633f601f16e840d83eccdd683897342c3a
+PODFILE CHECKSUM: 1fb9ca9672ef8bd6dd580b4ebbf287ea73e375f3
 
 COCOAPODS: 1.11.3
