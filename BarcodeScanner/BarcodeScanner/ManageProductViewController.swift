@@ -18,7 +18,7 @@ class ManageProductViewController: UIViewController {
         guard let product = productModel else { return }
         self.barcode.text = "Barcode: \(product.barcode)"
         self.productName.text = product.name
-        self.productPrice.text = "\(product.price)"
+        self.productPrice.text = product.price
     }
 
     @IBAction func didTouchAddToDatabase(_ sender: UIButton) {

@@ -9,6 +9,10 @@ class Product: Object, ObjectKeyIdentifiable {
     @Persisted var quantity: Int = 0
     @Persisted var owner_id: String
     
+    var intPrice: Double {
+        return Double(price) ?? 0.0
+    }
+    
     convenience init(name: String, barcode: String, price: String, quantity: Int) {
         self.init()
         self.name = name

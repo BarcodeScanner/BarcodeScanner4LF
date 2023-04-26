@@ -490,21 +490,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noB-rO-VLE" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="58" y="315" width="277" height="247"/>
+                                <rect key="frame" x="16" y="69" width="361" height="340.66666666666669"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuy-6l-I3g" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="439.66666666666674" width="361" height="341"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3ch-3T-kwt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="noB-rO-VLE" firstAttribute="top" secondItem="3ch-3T-kwt" secondAttribute="top" constant="256" id="MNy-Df-gOs"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="height" secondItem="1kM-71-KdS" secondAttribute="height" multiplier="0.4" id="Fox-rV-OVQ"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="top" secondItem="3ch-3T-kwt" secondAttribute="top" constant="10" id="MNy-Df-gOs"/>
                             <constraint firstItem="noB-rO-VLE" firstAttribute="centerX" secondItem="3ch-3T-kwt" secondAttribute="centerX" id="ScZ-sB-Usi"/>
-                            <constraint firstItem="noB-rO-VLE" firstAttribute="centerY" secondItem="3ch-3T-kwt" secondAttribute="centerY" id="rxX-x4-TU9"/>
-                            <constraint firstItem="noB-rO-VLE" firstAttribute="leading" secondItem="3ch-3T-kwt" secondAttribute="leading" constant="58" id="wyl-FU-pBt"/>
+                            <constraint firstItem="fuy-6l-I3g" firstAttribute="centerX" secondItem="3ch-3T-kwt" secondAttribute="centerX" id="eI9-5S-jiy"/>
+                            <constraint firstItem="fuy-6l-I3g" firstAttribute="top" secondItem="noB-rO-VLE" secondAttribute="bottom" constant="30" id="flN-dv-VKY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fuy-6l-I3g" secondAttribute="trailing" id="hSI-Ju-eMo"/>
+                            <constraint firstItem="fuy-6l-I3g" firstAttribute="height" secondItem="1kM-71-KdS" secondAttribute="height" multiplier="0.4" id="qLG-cH-Dwn"/>
+                            <constraint firstItem="fuy-6l-I3g" firstAttribute="leading" secondItem="1kM-71-KdS" secondAttribute="leadingMargin" id="vvt-5R-APs"/>
+                            <constraint firstItem="noB-rO-VLE" firstAttribute="leading" secondItem="1kM-71-KdS" secondAttribute="leadingMargin" id="wyl-FU-pBt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="barChartView" destination="noB-rO-VLE" id="9d7-v9-8M8"/>
+                        <outlet property="priceChartView" destination="fuy-6l-I3g" id="Sns-WM-5gw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zna-H7-NuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
