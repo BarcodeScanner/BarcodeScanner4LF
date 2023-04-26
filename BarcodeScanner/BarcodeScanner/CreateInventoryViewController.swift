@@ -7,16 +7,18 @@ class CreateInventoryViewController: UIViewController {
     @IBAction func didTouchCreate(_ sender: UIButton) {
         guard let name = self.inventoryName.text,
               let realm = ApplicationManager.shared.realm else {
-            // TODO: add message handling for case name is missing
+            return
+        }
+        if name.isEmpty {
+            self.missingInventoryName()
             return
         }
         let inventory = Inventory(name: name)
         do {
             try realm.write {
                 realm.add(inventory)
-                self.navigationController?.popViewController(animated: true)
             }
-            // TODO: add message for succes
+            self.inventoryCreated()
             
         } catch let error {
             print(error.localizedDescription)
@@ -26,5 +28,23 @@ class CreateInventoryViewController: UIViewController {
     
     @IBAction func didTouchCancel(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func missingInventoryName() {
+        let alert = UIAlertController(title: nil, message: "Please, add a name for Inventory", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func inventoryCreated() {
+        let alert = UIAlertController(title: nil, message: "Inventory was created", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: {_ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }

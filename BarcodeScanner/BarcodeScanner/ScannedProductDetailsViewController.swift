@@ -7,12 +7,15 @@ class ScannedProductDetailsViewController: UIViewController {
     
     @IBOutlet weak var barcode: UILabel!
     
+    @IBOutlet weak var price: UILabel!
+    
     @IBOutlet weak var quantity: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let product = product else { return }
         self.productName.text = product.name
         self.barcode.text = product.barcode
+        self.price.text = product.price
         self.quantity.text = "\(product.quantity)"
     }
 }
