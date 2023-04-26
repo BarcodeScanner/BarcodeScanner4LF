@@ -76,7 +76,7 @@ class InventoryDetailsViewController: UIViewController {
                 if let product = self.inventory?.products.first(where: { $0.barcode == stringValue } ) {
                     product.quantity += 1
                 } else {
-                    let product = Product(name: dbProduct.name, barcode: dbProduct.barcode, quantity: 1)
+                    let product = Product(name: dbProduct.name, barcode: dbProduct.barcode, price: dbProduct.price, quantity: 1)
                     self.inventory?.products.append(product)
                 }
             }

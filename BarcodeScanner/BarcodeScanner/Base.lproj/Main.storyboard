@@ -509,7 +509,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="2NZ-7N-Ygk">
-                                <rect key="frame" x="15" y="175" width="363" height="267"/>
+                                <rect key="frame" x="15" y="175" width="363" height="119"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-iJ-Q2G">
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="40"/>
@@ -527,24 +527,8 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mOM-lB-6vg">
-                                        <rect key="frame" x="0.0" y="79" width="363" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantitate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-7B-d0q">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kkv-ko-O2q">
-                                                <rect key="frame" x="112.33333333333333" y="0.0" width="250.66666666666669" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CA5-BT-oQ2">
-                                        <rect key="frame" x="0.0" y="158" width="363" height="40"/>
+                                        <rect key="frame" x="0.0" y="79" width="363" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pret:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS0-Kd-lqL">
                                                 <rect key="frame" x="0.0" y="0.0" width="49.333333333333336" height="40"/>
@@ -559,16 +543,9 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myg-Ca-vH7">
-                                        <rect key="frame" x="0.0" y="237" width="91.333333333333329" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="zn7-iJ-Q2G" firstAttribute="width" secondItem="2NZ-7N-Ygk" secondAttribute="width" id="Chq-7x-PoD"/>
-                                    <constraint firstItem="mOM-lB-6vg" firstAttribute="width" secondItem="2NZ-7N-Ygk" secondAttribute="width" id="QJE-6F-BW3"/>
                                     <constraint firstItem="CA5-BT-oQ2" firstAttribute="width" secondItem="2NZ-7N-Ygk" secondAttribute="width" id="W3o-rc-Y0A"/>
                                 </constraints>
                             </stackView>
@@ -605,7 +582,7 @@
                     <connections>
                         <outlet property="barcode" destination="u1J-me-l0A" id="vue-IX-WWU"/>
                         <outlet property="productName" destination="0RH-r1-Vhy" id="RIu-jf-aIn"/>
-                        <outlet property="quantityTextField" destination="Kkv-ko-O2q" id="GGW-DQ-qGU"/>
+                        <outlet property="productPrice" destination="sUj-6l-udO" id="RKj-sC-b7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFH-Ut-blz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

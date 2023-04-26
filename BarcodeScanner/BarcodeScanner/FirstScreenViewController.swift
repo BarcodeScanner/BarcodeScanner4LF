@@ -29,11 +29,22 @@ class FirstScreenViewController: UIViewController {
             do {
                 try await user.logOut()
                 print("Successfully logged user out")
-                goToLoginScreen()
+                logoutAlert()
             } catch {
                 print("Failed to log user out: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func logoutAlert() {
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {_ in
+            self.goToLoginScreen()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
     func goToLoginScreen() {
@@ -52,7 +63,7 @@ extension FirstScreenViewController {
             return $0.barcode == stringValue }) else {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             guard let manageProductViewController = storyboard.instantiateViewController(withIdentifier: "ManageProductViewController") as? ManageProductViewController else { return }
-            manageProductViewController.productModel = Product(name: "", barcode: stringValue, quantity: 0)
+            manageProductViewController.productModel = Product(name: "", barcode: stringValue, price: "", quantity: 0)
             self.navigationController?.pushViewController(manageProductViewController, animated: true)
             return
         }

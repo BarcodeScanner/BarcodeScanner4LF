@@ -3,4 +3,54 @@
    uuid = "6547AC13-26D8-43BF-B61C-2FD5473ABB49"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5BD96C1-5696-40ED-81E3-402ACBE9892D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BarcodeScanner/ManageProductViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "add()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F5BD96C1-5696-40ED-81E3-402ACBE9892D - 4d02fc275f42f99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BarcodeScanner.ManageProductViewController.add() -&gt; ()"
+                  moduleName = "BarcodeScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/crina/ProiectFinal/BarcodeScanner4LF/BarcodeScanner/BarcodeScanner/ManageProductViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "436">
+               </Location>
+               <Location
+                  uuid = "F5BD96C1-5696-40ED-81E3-402ACBE9892D - 8c2dfbd613494464"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BarcodeScanner.ManageProductViewController.add() -&gt; ()"
+                  moduleName = "BarcodeScanner"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/crina/ProiectFinal/BarcodeScanner4LF/BarcodeScanner/BarcodeScanner/ManageProductViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
