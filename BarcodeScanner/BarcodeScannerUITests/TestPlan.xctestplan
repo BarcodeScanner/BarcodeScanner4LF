@@ -1,0 +1,18 @@
+{
+  "configurations" : [
+    {
+      "id" : "5A6D9587-1563-4EA2-9155-DEF3C24BE44A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
