@@ -31,9 +31,12 @@ class LoginScreenViewController: UIViewController {
                 self.continueApp(with: user)
             } catch {
                 print("Failed to register user: \(error.localizedDescription)")
+                self.errorCreateAccount()
             }
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,12 @@ class LoginScreenViewController: UIViewController {
     
     func invalidEmailOrPasswordAlert() {
         let alert = UIAlertController(title: "Error", message: "Invalid Email or Password", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func errorCreateAccount() {
+        let alert = UIAlertController(title: "Error", message: "Somethings is wrong", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

@@ -8,7 +8,7 @@
 import XCTest
 
 final class BarcodeScannerUITests: XCTestCase {
-
+    let app = XCUIApplication()
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -24,11 +24,27 @@ final class BarcodeScannerUITests: XCTestCase {
 
     func testExample() throws {
         // UI tests must launch the application that they test.
-        let app = XCUIApplication()
         app.launch()
+        
+        
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func createAccount() throws {
+        app.launch()
+        let email = app.textFields["email-text-field"]
+        email.tap()
+        email.typeText("leca@unitbv.ro")
+        
+        let password = app.textFields["password-text-field"]
+        password.tap()
+        password.typeText("lecabv")
+        
+        app.buttons["create-account-button"].tap()
+        XCTAssert(app.switches["inventory-switch"].waitForExistence(timeout: (30)))
+    }
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {

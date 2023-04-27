@@ -18,6 +18,10 @@
 		8676168729EFDEEC002D1526 /* chec.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86CE0D7229DF587200B1D2BB /* chec.plist */; };
 		868AF00829EE8B400029A9D0 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */; };
 		86A4E37129F941E400B5E42C /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A4E37029F941E400B5E42C /* BarChartViewController.swift */; };
+		86A5C5F429FAA0DD00FCAEB5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86A5C5F329FAA0DD00FCAEB5 /* RealmSwift */; };
+		86A5C5F629FAA11700FCAEB5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 86A5C5F529FAA11700FCAEB5 /* RealmSwift */; };
+		86A5C5F829FAA19600FCAEB5 /* BarcodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A5C5F729FAA19600FCAEB5 /* BarcodeTest.swift */; };
+		86A5C5FA29FABD8000FCAEB5 /* LoginBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A5C5F929FABD8000FCAEB5 /* LoginBarcode.swift */; };
 		86A8C42629F1A685004D9608 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */; };
 		86A8C42829F1A82C004D9608 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42729F1A82C004D9608 /* ApplicationManager.swift */; };
 		86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */; };
@@ -71,6 +75,9 @@
 		8676168529EFDE78002D1526 /* atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = atlas.plist; sourceTree = "<group>"; };
 		868AF00729EE8B400029A9D0 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		86A4E37029F941E400B5E42C /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
+		86A5C5F729FAA19600FCAEB5 /* BarcodeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTest.swift; sourceTree = "<group>"; };
+		86A5C5F929FABD8000FCAEB5 /* LoginBarcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBarcode.swift; sourceTree = "<group>"; };
+		86A5C5FB29FAC41300FCAEB5 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		86A8C42729F1A82C004D9608 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A5C5F629FAA11700FCAEB5 /* RealmSwift in Frameworks */,
 				6FE67258F8F66F7A0CA842C0 /* Pods_BarcodeScannerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A5C5F429FAA0DD00FCAEB5 /* RealmSwift in Frameworks */,
 				3F9D74D74D31A4F1151F8A38 /* Pods_BarcodeScanner_BarcodeScannerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,8 +229,11 @@
 		86CE0D8429DF587200B1D2BB /* BarcodeScannerUITests */ = {
 			isa = PBXGroup;
 			children = (
+				86A5C5FB29FAC41300FCAEB5 /* TestPlan.xctestplan */,
 				86CE0D8529DF587200B1D2BB /* BarcodeScannerUITests.swift */,
 				86CE0D8729DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift */,
+				86A5C5F729FAA19600FCAEB5 /* BarcodeTest.swift */,
+				86A5C5F929FABD8000FCAEB5 /* LoginBarcode.swift */,
 			);
 			path = BarcodeScannerUITests;
 			sourceTree = "<group>";
@@ -267,6 +279,9 @@
 				86CE0D7929DF587200B1D2BB /* PBXTargetDependency */,
 			);
 			name = BarcodeScannerTests;
+			packageProductDependencies = (
+				86A5C5F529FAA11700FCAEB5 /* RealmSwift */,
+			);
 			productName = BarcodeScannerTests;
 			productReference = 86CE0D7729DF587200B1D2BB /* BarcodeScannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -287,6 +302,9 @@
 				86CE0D8329DF587200B1D2BB /* PBXTargetDependency */,
 			);
 			name = BarcodeScannerUITests;
+			packageProductDependencies = (
+				86A5C5F329FAA0DD00FCAEB5 /* RealmSwift */,
+			);
 			productName = BarcodeScannerUITests;
 			productReference = 86CE0D8129DF587200B1D2BB /* BarcodeScannerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -509,7 +527,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A5C5F829FAA19600FCAEB5 /* BarcodeTest.swift in Sources */,
 				86CE0D8829DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift in Sources */,
+				86A5C5FA29FABD8000FCAEB5 /* LoginBarcode.swift in Sources */,
 				86CE0D8629DF587200B1D2BB /* BarcodeScannerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,6 +874,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		86A5C5F329FAA0DD00FCAEB5 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		86A5C5F529FAA11700FCAEB5 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		86AF0B0B29E01FC800399E5F /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 86AF0B0A29E01FC800399E5F /* XCRemoteSwiftPackageReference "realm-swift" */;

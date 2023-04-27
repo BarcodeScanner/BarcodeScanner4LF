@@ -9,6 +9,7 @@ import Foundation
 import CSV
 
 class CSVExporter {
+    static let rootName = "/InventoryApp/"
     lazy var appDocumentDirectory: URL = {
         do {
             let folderURL = try FileManager.default.url(
@@ -25,21 +26,24 @@ class CSVExporter {
         }
     }()
     
+    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+    
     func export(inventory: Inventory) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH_mm_ss_YY_MMM_d"
         let fileName = "\(dateFormatter.string(from: Date())).csv"
         let docURL = appDocumentDirectory
-        let dataPath = docURL.appendingPathComponent("InventoryApp")
-        if !FileManager.default.fileExists(atPath: dataPath.path) {
+        let dataPath = docURL.appendingPathComponent(CSVExporter.rootName)
+        let root = documentsPath.appending(CSVExporter.rootName)
+        if !FileManager.default.fileExists(atPath: root) {
             do {
-                try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(atPath: root, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 print(error.localizedDescription)
             }
         }
-        let path = dataPath.appending(path: fileName)
-        let stream = OutputStream(toFileAtPath: path.path, append: false)!
+        let path = root.appending(fileName)
+        let stream = OutputStream(toFileAtPath: path, append: false)!
         let csv = try! CSVWriter(stream: stream)
         
         let names = Array(inventory.products.compactMap { $0.name })

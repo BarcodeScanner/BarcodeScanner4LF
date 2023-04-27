@@ -17,7 +17,7 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
         self.getPriceProducts()
         priceChartSetUp()
         
-        let newinventoryImage = UIImage(systemName: "plus")
+        let newinventoryImage = UIImage(systemName: "square.and.arrow.up")
         let newInventoryButton = UIBarButtonItem(image: newinventoryImage, style: .plain, target: self, action: #selector(exportToCSV))
         navigationItem.rightBarButtonItem = newInventoryButton
     }
@@ -26,6 +26,15 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
         guard let inventory = self.inventory else { return }
         let csvExporter = CSVExporter()
         csvExporter.export(inventory: inventory)
+        exportCSV()
+    }
+    
+    func exportCSV() {
+        let alert = UIAlertController(title: nil, message: "The report has been sent successfully", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
     func barChartData(productName: [String], values: [Int]) {
@@ -47,11 +56,12 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
             dict[item.name] = item.quantity
            
         }
-        let xAxis = priceChartView.xAxis
+        let names = Array(products.keys)
+        let xAxis = barChartView.xAxis
         xAxis.setLabelCount(products.count, force: false)
-        xAxis.valueFormatter = IndexAxisValueFormatter(values: products.map { $0.key })
+        xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
         
-        barChartData(productName: Array(products.keys), values: Array(products.values))
+        barChartData(productName: names, values: Array(products.values))
     }
     
     func chartSetUp() {
@@ -92,8 +102,8 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
         priceChartView.noDataText = "No Data available for Chart"
         var dataEntries: [BarChartDataEntry] = []
         for i in 0..<productName.count {
-        let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
-        dataEntries.append(dataEntry)
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values[i]))
+            dataEntries.append(dataEntry)
         }
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Product's price")
         let chartData = BarChartData(dataSet: chartDataSet)
@@ -106,11 +116,13 @@ class BarChartViewController: UIViewController, ChartViewDelegate {
         let products = inventories.reduce(into: [String : Double]()) {dict, item in
             dict[item.name] = item.intPrice
         }
-        let xAxis = barChartView.xAxis
+        let names = products.map { $0.key }
+        let values = products.map { $0.value }
+        let xAxis = priceChartView.xAxis
         xAxis.setLabelCount(products.count, force: false)
-        xAxis.valueFormatter = IndexAxisValueFormatter(values: products.map { $0.key })
+        xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
         
-        priceChartData(productName: Array(products.keys), values: Array(products.values))
+        priceChartData(productName: names, values: values)
     }
     
     func priceChartSetUp() {

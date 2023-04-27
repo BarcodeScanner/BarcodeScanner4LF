@@ -8,6 +8,8 @@
 import XCTest
 
 final class BarcodeTest: XCTestCase {
+    
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,10 +34,18 @@ final class BarcodeTest: XCTestCase {
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+           
+            let email = app.textFields["Email"]
+            email.tap()
+            email.typeText("testest@unitbv.ro")
+            
+            let password = app.secureTextFields["Password"]
+            password.tap()
+            password.typeText("testest")
+            app.keyboards.buttons["Done"].tap()
+            
+            app.buttons["Create Account"].tap()
+            XCTAssert(app.navigationBars["Inventory"].buttons["Log out"].waitForExistence(timeout: 30))
         }
     }
 }

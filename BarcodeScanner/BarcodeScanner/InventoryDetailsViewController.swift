@@ -56,6 +56,10 @@ class InventoryDetailsViewController: UIViewController {
     }
     
     @objc func goToAddProductsToInventory() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            let barcode = ApplicationManager.shared.realm?.objects(Product.self).randomElement()?.barcode
+            self.didReadBarcodeWithValue(barcode)
+            return }
         if let readerVC = BarcodeReaderViewController.getBarcodeReaderViewController() {
             readerVC.closeAfterFirstRead = true
             readerVC.$scannedBarcode.sink { scanned in
