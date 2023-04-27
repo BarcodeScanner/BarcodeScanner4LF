@@ -24,6 +24,7 @@
 		86A5C5FA29FABD8000FCAEB5 /* LoginBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A5C5F929FABD8000FCAEB5 /* LoginBarcode.swift */; };
 		86A8C42629F1A685004D9608 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */; };
 		86A8C42829F1A82C004D9608 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8C42729F1A82C004D9608 /* ApplicationManager.swift */; };
+		86AAD1A129FB107D0062776C /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAD1A029FB107D0062776C /* CreateAccount.swift */; };
 		86AF0B0329E00D7300399E5F /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */; };
 		86AF0B0729E01E4300399E5F /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */; };
 		86AF0B0C29E01FC800399E5F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 86AF0B0B29E01FC800399E5F /* Realm */; };
@@ -80,6 +81,7 @@
 		86A5C5FB29FAC41300FCAEB5 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		86A8C42529F1A685004D9608 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		86A8C42729F1A82C004D9608 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
+		86AAD1A029FB107D0062776C /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		86AF0B0229E00D7300399E5F /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		86AF0B0629E01E4300399E5F /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		86AF0B0F29E0207300399E5F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				86CE0D8729DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift */,
 				86A5C5F729FAA19600FCAEB5 /* BarcodeTest.swift */,
 				86A5C5F929FABD8000FCAEB5 /* LoginBarcode.swift */,
+				86AAD1A029FB107D0062776C /* CreateAccount.swift */,
 			);
 			path = BarcodeScannerUITests;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			files = (
 				86A5C5F829FAA19600FCAEB5 /* BarcodeTest.swift in Sources */,
 				86CE0D8829DF587200B1D2BB /* BarcodeScannerUITestsLaunchTests.swift in Sources */,
+				86AAD1A129FB107D0062776C /* CreateAccount.swift in Sources */,
 				86A5C5FA29FABD8000FCAEB5 /* LoginBarcode.swift in Sources */,
 				86CE0D8629DF587200B1D2BB /* BarcodeScannerUITests.swift in Sources */,
 			);
